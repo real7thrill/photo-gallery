@@ -1,0 +1,46 @@
+/* Room 1: Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* Room 2: Circular Layout */
+.circular-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.circular-layout .photo-frame {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+/* Room 3: Hallway Layout */
+.hallway-layout {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* Room 4: Staggered Layout */
+.staggered-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.staggered-layout .photo-frame:nth-child(odd) {
+    transform: translateY(10px);
+}
+
+/* Room 5: Symmetrical Layout */
+.symmetrical-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
