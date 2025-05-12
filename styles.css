@@ -1,39 +1,333 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    background-color: #2c2c2c;
+    color: #e6e1d5;
     font-family: 'Georgia', serif;
-    background-color: #2E2B29;
-    color: #E0D6CC;
     margin: 0;
     padding: 0;
 }
 
-h1 {
+/* Navigation */
+nav {
+    background: #1a1a1a;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: #cfa07e;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e6e1d5;
+}
+
+/* Gallery Title */
+.gallery-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin: 2rem 0;
+    color: #cfa07e;
 }
 
+/* Room General Styling */
 .room {
-    padding: 50px 10%;
-    background-color: #2E2B29;
-    margin-bottom: 50px;
-    border-bottom: 2px solid #6C584C;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #3a3a3a, #2c2c2c);
+    border-bottom: 2px solid #cfa07e;
+    transition: all 0.5s ease;
 }
 
+/* Marble Floor Effect for All Rooms */
+.room::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(90deg, #e6e1d5, #d3d3d3);
+    background-size: 200% 200%;
+    filter: blur(2px);
+    opacity: 0.8;
+}
+
+/* Room Titles */
+.room h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #e6e1d5;
+    border-bottom: 2px solid #cfa07e;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Photo Layouts */
 .photo-grid {
     display: grid;
-    gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
-.photo-frame {
-    background-color: #6C584C;
-    padding: 10px;
-    border: 2px solid #B78A5F;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+.photo-circular {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
 }
 
+.photo-staggered {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.photo-staggered .photo-frame:nth-child(odd) {
+    transform: translateY(20px);
+}
+
+.photo-wall {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.left-wall, .right-wall, .center-wall {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Photo Frames */
 .photo-frame img {
     width: 100%;
     height: auto;
+    border: 5px solid #cfa07e;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.photo-frame img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(207, 160, 126, 0.6);
+}
+
+/* Elegant Lighting Effect */
+.photo-frame {
+    position: relative;
+}
+
+.photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(207, 160, 126, 0.3), transparent);
+    z-index: -1;
+}
+
+/* Windows */
+.window {
+    position: absolute;
+    background: linear-gradient(180deg, #1a1a1a, #2c2c2c);
+    border: 3px solid #cfa07e;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.wide {
+    right: 2rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 20%;
+}
+
+.narrow {
+    right: 2rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 10%;
+}
+
+.tall {
+    right: 2rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 15%;
+}
+
+/* Window Glow */
+.window::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: radial-gradient(circle, rgba(207, 160, 126, 0.2), transparent);
+    z-index: -1;
+}
+
+/* Doors */
+.door {
+    position: absolute;
+    bottom: 2rem;
+    right: 25%;
+    width: 100px;
+    height: 200px;
+    background: #2a1e1b;
+    border: 3px solid #cfa07e;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.door.exit {
+    right: 30%;
+}
+
+/* Flower Pots */
+.flower-pot {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    width: 50px;
+    height: 70px;
+    background: #1a1a1a;
+    border: 2px solid #cfa07e;
+    border-radius: 5px;
+}
+
+.flower-pot::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 5px;
+    width: 40px;
+    height: 20px;
+    background: linear-gradient(90deg, #4a3b2e, #6b5a47);
+    border-radius: 50%;
+}
+
+/* Benches */
+.bench {
+    position: absolute;
+    bottom: 2rem;
+    left: 10%;
+    width: 150px;
+    height: 40px;
+    background: #423f3e;
+    border: 2px solid #cfa07e;
+    border-radius: 5px;
+    color: #e6e1d5;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* Sculptures */
+.sculpture {
+    position: absolute;
+    bottom: 2rem;
+    right: 35%;
+    width: 30px;
+    height: 60px;
+    background: #cfa07e;
+    border-radius: 5px;
+    transform: rotate(45deg);
+}
+
+.sculpture::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #cfa07e;
+    border-radius: 50%;
+}
+
+/* Room-Specific Styling */
+.room1 {
+    background: linear-gradient(180deg, #3a3a3a, #2c2c2c);
+}
+
+.room2 {
+    background: linear-gradient(180deg, #423f3e, #2c2c2c);
+}
+
+.room3 {
+    background: linear-gradient(180deg, #39312f, #2c2c2c);
+}
+
+.room4 {
+    background: linear-gradient(180deg, #302b28, #2c2c2c);
+}
+
+.room5 {
+    background: linear-gradient(180deg, #3a3a3a, #2c2c2c);
+}
+
+/* Stairs Transition Effect */
+.room {
+    transform: perspective(1000px) rotateX(5deg);
+    transform-origin: top;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: #cfa07e;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .photo-grid, .photo-circular, .photo-staggered {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .window, .door, .flower-pot, .bench, .sculpture {
+        display: none;
+    }
+}
+
 
