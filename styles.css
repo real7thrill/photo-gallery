@@ -1,46 +1,39 @@
-/* Room 1: Grid Layout */
-.grid-layout {
+body {
+    font-family: 'Georgia', serif;
+    background-color: #2E2B29;
+    color: #E0D6CC;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.room {
+    padding: 50px 10%;
+    background-color: #2E2B29;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #6C584C;
+}
+
+.photo-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-/* Room 2: Circular Layout */
-.circular-layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+.photo-frame {
+    background-color: #6C584C;
+    padding: 10px;
+    border: 2px solid #B78A5F;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.circular-layout .photo-frame {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+.photo-frame img {
+    width: 100%;
+    height: auto;
 }
 
-/* Room 3: Hallway Layout */
-.hallway-layout {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-}
-
-/* Room 4: Staggered Layout */
-.staggered-layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.staggered-layout .photo-frame:nth-child(odd) {
-    transform: translateY(10px);
-}
-
-/* Room 5: Symmetrical Layout */
-.symmetrical-layout {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
